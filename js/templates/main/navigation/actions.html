@@ -1,0 +1,25 @@
+<!-- User commands -->
+<div class="dropdown">
+    <button id="dLabel" type="button" class="btn btn-default btn-xs navbar-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span>{{userName}}</span>
+        <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dLabel">
+        <li><a href="#" id="log-out" ng-click="logOut(userId)">Log out</a></li>
+    </ul>
+</div>
+
+<!-- User navigation -->
+<div class="dropdown">
+	<button id="dLabel" type="button" class="btn btn-default btn-xs navbar-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		<span id="active-bot">{{activeBotName}}</span>
+		<span class="caret"></span>
+	</button>
+	<ul class="dropdown-menu" aria-labelledby="dLabel">
+		<li id="bot-list" ng-repeat="bot in bots" ng-include="bot_item"></li>
+		<li role="separator" class="divider"></li>
+		<li><a href="#" id="add-new-bot" data-toggle="modal" data-target="#add-bot-modal" ng-click="modalForm('bot', 'new')">Add new bot</a></li>
+		<li><a href="#" id="new_cron" data-toggle="modal" data-target="#cron-modal" ng-click="modalForm('cron', 'new')" >New cron</a></li>
+		<li><a href="#" id="new_channel" data-toggle="modal" data-target="#add-channel-modal" ng-click="modalForm('channel', 'new')" >Add channel</a></li>
+	</ul>
+</div>

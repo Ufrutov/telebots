@@ -1,0 +1,202 @@
+<!-- Modal dialog for cron edit -->
+<div class="modal fade" id="cron-modal" tabindex="-1" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title strong">/delivery setup</h4>
+			</div>
+			<div class="modal-body">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-4 col-sm-5 col-xs-12">
+							<header>
+								<h4>Chats</h4>
+							</header>
+							<div class="chats ui-list col-md-12" id="modal-chats">
+								<div ng-include="chat_list" ng-repeat="chat in chats">
+									<div class="list-loading"><img src="img/loading.gif" alt="Updates loading" ></div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-8 col-sm-7 col-xs-12">
+							<header>
+								<h4>Settings</h4>
+							</header>
+							<div class="cron-message col-md-12">
+								<form name="message-form" id="cron-message" action="send_message" data-cron="0">
+									<div class="form-group">
+										<label class="main">Repeat</label>
+										<div class="row">
+											<div class="col-xs-6">
+												<label class="radio">
+													<input type="radio" name="repeat" id="repeat-once" value="once">Only once
+												</label>
+												<label class="radio">
+													<input type="radio" name="repeat" id="repeat-hour" value="hour">Every hour
+												</label>
+												<label class="radio">
+													<input type="radio" name="repeat" id="repeat-day" value="day" checked="">Daily
+												</label>
+											</div>
+											<div class="col-xs-6">
+												<label class="radio">
+													<input type="radio" name="repeat" id="repeat-week" value="week">Every week
+												</label>
+												<label class="radio">
+													<input type="radio" name="repeat" id="repeat-month" value="month">Every month
+												</label>
+												<label class="radio">
+													<input type="radio" name="repeat" id="repeat-year" value="year">Every year
+												</label>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="main" for="input-date">Delivery date</label>
+										<input class="form-control datepicker" id="cron-datepicker" readonly="readonly" datetime-picker ng-model="cronDate" date-format="HH:mm dd/MM/yyyy">
+									</div>
+									<div class="form-group">
+										<label class="main" for="cron-input-message">Message</label>
+										<div>
+											<p><span class="label label-primary">&lt;DATE&gt;</span> - cron date value</p>
+										</div>
+										<textarea class="form-control" placeholder="Tape message" id="cron-input-message" rows="3" required="required"></textarea>
+									</div>
+									<div class="form-group cron-all">
+										<div class="checkbox">
+											<label>
+												<input type="checkbox" id="cron-all-chats"> Select all chats
+											</label>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-danger" id="delete-cron" ng-click="deleteCron(cronId)">Delete</button>
+				<button type="button" class="btn btn-primary" id="save-cron" ng-click="saveCron(cronId, cronDate)">Save</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- Modal dialog for files edit -->
+<div class="modal fade" id="open-files-modal" tabindex="-1" role="dialog">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title strong">/files</h4>
+			</div>
+			<div class="modal-body">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-4 col-sm-5 col-xs-12">
+							<header>
+								<h4>Select</h4>
+							</header>
+							<div class="folders col-md-12">
+								<div class="form-group">
+									<label for="select-folder">Select folder</label>
+									<!-- Select folder -->
+									<div class="dropdown">
+										<button id="select-folder" type="button" class="btn btn-default form-control" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+											<span id="active-folder">{{activeFolder}}</span>
+											<span class="caret"></span>
+										</button>
+										<ul class="dropdown-menu" aria-labelledby="dLabel">
+											<li id="folder-list" ng-repeat="folder in folders" ng-include="folder_item"></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-8 col-sm-7 col-xs-12">
+							<header>
+								<h4>Files</h4>
+							</header>
+							<div class="files col-md-12">
+								<div id="files-list" ng-repeat="file in files" ng-include="file_item"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-primary" id="save-files">Save</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- Modal for new bot -->
+<div class="modal fade" id="add-bot-modal" tabindex="-1" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title strong">/new bot</h4>
+			</div>
+			<div class="modal-body">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12">
+							<div class="add-bot-form">
+								<form name="add-bot-form" id="add-bot-form" action="add_bot">
+									<div class="form-group">
+										<label class="control-label" for="add-bot-token" data-original="Authentication token">Authentication token</label>
+										<input name="token" type="text" class="form-control" id="add-bot-token" placeholder="<token>" ng-model="newBotToken">
+									</div>
+								</form>
+								<p class="note">Each bot is given a unique authentication token <a href="/bots#botfather" target="_blank">when it is created</a>. The token looks something like <code>123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11</code>, but we'll use simply <strong>&lt;token&gt;</strong> in this document instead. You can learn about obtaining tokens and generating new ones in <a href="https://core.telegram.org/bots#botfather" target="_blank">this document</a>.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+				<button type="button" class="btn btn-primary" id="add-bot-action" ng-click="addBot(newBotToken, userId)">Start</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- Modal for new channel -->
+<div class="modal fade" id="add-channel-modal" tabindex="-1" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title strong">/new channel</h4>
+			</div>
+			<div class="modal-body">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12">
+							<div class="add-bot-form">
+								<form name="add-bot-form" id="add-bot-form" action="add_bot">
+									<div class="form-group">
+										<label class="control-label" for="add-bot-token" data-original="Channel name">Channel name</label>
+										<input name="token" type="text" class="form-control" id="add-new-channel" placeholder="<Channel>" ng-model="newChannel">
+									</div>
+								</form>
+								<p class="note">Note about channel</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+				<button type="button" class="btn btn-primary" id="add-channel-action" ng-click="addChannel(newChannel, userId)">Start</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

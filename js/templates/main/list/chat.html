@@ -1,0 +1,16 @@
+<!-- Single chat view -->
+<div class="row chat-item ui-list-item">
+	<div class="col-lg-12 chat">
+		<div class="select">
+			<input type="checkbox" id="{{chat.chat_id}}" name="{{chat.chat_id}}">
+		</div>
+		<label title="{{chat.first_name}}" for="{{chat.chat_id}}">
+			<div class="name">
+				<strong>{{chat.username}}</strong>
+			</div>
+			<div class="sub">
+				<span>{{chat.first_name}}</span> | id: <span>{{chat.chat_id}}</span>
+			</div>
+		</label>
+	</div>
+</div>

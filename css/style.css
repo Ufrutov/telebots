@@ -1,0 +1,298 @@
+*,
+.ui-widget {
+	outline: none !important;
+}
+
+.body {
+	padding-bottom: 40px;
+}
+
+form label.main {
+	display: block;
+}
+
+.nav > li > a {
+	padding-top: 9px;
+	padding-bottom: 9px;
+}
+
+.navbar-header {
+	width: 100%;
+}
+
+.navbar-header .btn {
+	float: right;
+	margin-left: 5px;
+}
+
+.navbar-default .navbar-brand {
+	font-size: 16px;
+	color: #0088cc;
+	font-weight: bold;
+}
+
+.navbar-default .navbar-brand-logo {
+	display: inline-block;
+	width: 46px;
+	height: 46px;
+	margin-top: 2px;
+	margin-left: 20px;
+	background: url("../img/logo.png") no-repeat center;
+}
+
+.body header,
+.modal header {
+	padding-right: 15px;
+    padding-left: 15px;
+	border-bottom: 1px solid #ECECEC;
+}
+
+.ui-list .ui-list-item {
+	padding: 5px 0;
+	border-top: 1px solid #fff;
+	border-bottom: 1px solid #ECECEC;
+}
+
+.chats.ui-list {
+	max-height: 300px;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+.chats .chat-item .chat {
+	position: relative;
+	margin-left: 45px;
+	border-left: 1px solid #ECECEB;
+	padding: 0;
+}
+
+.chats .chat-item .chat label {
+	display: block;
+	margin: 0;
+	padding: 0 15px;
+	font-weight: normal;
+	cursor: pointer;
+}
+
+.chats .chat-item .chat .select,
+.ui-list .ui-list-item .enable {
+	position: absolute;
+	left: -30px;
+	height: 100%;
+}
+
+.chats .chat-item .chat .select input[type="checkbox"],
+.ui-list .ui-list-item .enable input[type="checkbox"] {
+	position: absolute;
+	top: 50%;
+	margin-top: -7px;
+	cursor: pointer;
+}
+
+.ui-list .ui-list-item .enable {
+	left: 17px;
+}
+
+.ui-list .ui-list-item .cron-chat {
+	margin-left: 32px;
+	border-left: 1px solid #ECECEB;
+	padding-left: 15px;
+}
+
+.message-form h4 {
+	padding: 5px 0;
+}
+
+.message-form .col-lg-12 {
+	margin: 0;
+	padding: 0;
+}
+
+.message-form .send-message,
+.modal .cron-message,
+.modal .folders,
+.modal .files {
+	padding: 10px;
+}
+
+.message-form .form-group > label,
+.modal .cron-message .form-group > label,
+.modal .cron-message .form-group label.radio {
+	cursor: pointer;
+	font-size: 12px;
+	font-weight: normal;
+	color: #777;
+}
+
+.note {
+	font-size: 12px;
+	color: #777;
+}
+
+.message-form textarea,
+.modal .cron-message textarea {
+	resize: vertical;
+	max-height: 200px;
+	padding: 4px 8px;
+}
+
+.message-form label.error,
+.modal .cron-message label.error,
+.form-group.error label,
+.modal .cron-message .form-group.error > label{
+	font-weight: bold;
+	color: #CC221E;
+}
+
+.ui-list .ui-list-item .text,
+.updates .update-item .text,
+.messages .message-item .text {
+	border-left: 1px solid #ECECEB;
+}
+
+.ui-list .ui-list-item .name strong,
+.updates .update-item .name strong,
+.messages .message-item .name strong,
+.chats .chat-item .name strong {
+	color: #0088cc;
+}
+
+.ui-list .ui-list-item .name .id,
+.updates .update-item .name .id,
+.ui-list .ui-list-item .text .sub,
+.updates .update-item .text .sub,
+.messages .message-item .name .id,
+.messages .message-item .text .sub,
+.ui-list .ui-list--item .chat .sub,
+.chats .chat-item .chat .sub {
+	margin-top: 3px;
+	font-size: 11px;
+	color: #777;
+}
+
+.cron.ui-list .ui-list-item:hover {
+	background-color: #F5F5F5;
+	cursor: pointer;
+}
+
+.list-loading {
+	padding: 50px 0;
+	text-align: center;
+}
+
+.empty-list {
+	padding: 50px 0;
+	text-align: center;
+	color: #0088cc;
+}
+
+.empty-list img {
+	border: none;
+	margin-bottom: 20px;
+}
+
+.chats .empty-list img {
+	width: 100%;
+}
+
+.empty-list h5 {
+	font-weight: bold;
+	font-size: 16px;
+}
+
+.modal-body {
+	padding-bottom: 20px;
+}
+
+.modal-title.strong {
+	font-weight: bold;
+	color: #0088cc;
+}
+
+.cron-message .form-group label.radio {
+	padding-left: 20px;
+	font-size: 14px;
+	color: #333;
+}
+
+.sign-tab .sign-form {
+	padding: 20px 15px 5px;
+}
+
+.navbar-actions {
+	position: relative;
+	float: right;
+}
+
+.navbar-actions .dropdown-menu {
+	right: 0;
+	left: initial;
+}
+
+.navbar-actions .dropdown {
+	position: initial;
+	float: right;
+}
+
+.angularjs-datetime-picker {
+	z-index: 10000;
+}
+
+.angularjs-datetime-picker input[type=range] {
+    width: 100%;
+}
+
+.angularjs-datetime-picker label.hourLabel,
+.angularjs-datetime-picker label.minutesLabel {
+	color: #0088cc;
+}
+
+.file-item {
+	text-align: center;
+	font-size: 0;
+	cursor: pointer;
+}
+
+.file-item p {
+	margin-top: 5px;
+	font-size: 12px;
+}
+
+.file-img {
+	padding: 3px;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	-webkit-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+}
+
+.file-item:hover p,
+.file-item:active p{
+	color: #0088cc;
+}
+
+.file-item:hover .file-img {
+	border: 1px solid #4CB3E6;
+}
+
+.file-item:active .file-img {
+	border: 2px solid #4CB3E6;
+	padding: 2px;
+}
+
+@media (max-width: 420px) {
+	.empty-list img {
+		width: 80%; }
+
+	.messages .message-item > div {
+		width: 95%;
+		float: none;
+		margin: 0 auto; }
+
+	.messages .message-item .text {
+		border-top: 1px dotted #ECECEB;
+		border-left: none;
+		margin-top: 5px;
+		padding-top: 5px; }
+}

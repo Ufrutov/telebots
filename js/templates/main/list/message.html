@@ -1,0 +1,17 @@
+<!-- Single message view -->
+<div class="row message-item ui-list-item">
+    <div class="col-md-3 col-sm-4 col-xs-4 name">
+        <div class="name">
+            <strong>{{message.chat}}</strong>
+        </div>
+        <div class="id">
+            id: <span>{{message.id}}</span>
+        </div>
+    </div>
+    <div class="col-md-9 col-sm-8 col-xs-8 text">
+        <div>{{message.text | limitTo: 200}}{{message.text.length > 200 ? '...' : ''}}</div>
+        <div class="sub">
+            date: <span>{{message.date}}</span>
+        </div>
+    </div>
+</div>

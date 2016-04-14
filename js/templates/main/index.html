@@ -1,0 +1,72 @@
+<!-- User ineterface template: Chats, Messages, Crons -->
+<div class="col-md-3 col-sm-4 col-xs-12">
+	<header>
+		<h4>Chats</h4>
+	</header>
+	<div class="chats ui-list col-md-12" id="chats">
+		<div ng-include="chat_list" ng-repeat="chat in chats">
+			<div class="list-loading">
+				<img src="img/loading.gif" alt="Updates loading" >
+			</div>
+		</div>
+	</div>
+	<div class="message-form col-md-12">
+		<div class="row">
+			<div class="col-lg-12">
+				<header>
+					<h4>Send message</h4>
+				</header>
+				<div class="send-message col-md-12">
+					<form name="message-form" id="send-message" action="send_message">
+						<div class="form-group">
+							<label for="input-message">Message</label>
+							<textarea class="form-control" placeholder="Tape message" id="input-message" rows="3" required="required"  ng-model="message" ng-change="updateMessage(message)"></textarea>
+						</div>
+						<div class="form-group">
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" id="all-chats" ng-model="sendMessageAll" ng-change="selectAllMessage(sendMessageAll)"> Select all chats
+								</label>
+							</div>
+						</div>
+						<div class="form-group">
+							<button type="button" class="btn btn-default" id="submit-file" ng-click="modalForm('files', userId)" data-toggle="modal" data-target="#open-files-modal">Files</button>
+							<button type="button" class="btn btn-default" id="submit-message" ng-click="sendMessage()">Send message</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="col-md-9 col-sm-8 col-xs-12">
+	<div class="main-tab">
+		 <!-- Nav tabs -->
+		<ul class="nav nav-tabs" role="tablist">
+			<li role="presentation" class="active updates-tab"><a href="#" ng-click="switchTab('updates')" aria-controls="updates" role="tab" data-toggle="tab">Updates</a></li>
+			<li role="presentation" class="messages-tab"><a href="#" ng-click="switchTab('messages')" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
+			<li role="presentation" class="cron-tab"><a href="#" ng-click="switchTab('cron')" aria-controls="cron" role="tab" data-toggle="tab">Cron</a></li>
+		</ul>
+
+		<!-- Tab panes -->
+		<div class="tab-content">
+			<div role="tabpanel" class="tab-pane updates col-md-12 ui-list active" id="updates-tab">
+				<div id="updates" ng-include="updates_list" ng-repeat="update in updates">
+					<div class="list-loading"><img src="img/loading.gif" alt="Updates loading" ></div>
+				</div>
+			</div>
+
+			<div role="tabpanel" class="tab-pane col-md-12 ui-list messages" id="messages-tab">
+				<div id="messages" ng-include="messages_list" ng-repeat="message in messages">
+					<div class="list-loading"><img src="img/loading.gif" alt="Messages loading" ></div>
+				</div>
+			</div>
+
+			<div role="tabpanel" class="tab-pane col-md-12 ui-list cron" id="cron-tab">
+				<div id="crons" ng-include="crons_list" ng-repeat="cron in crons">
+					<div class="list-loading"><img src="img/loading.gif" alt="Crons loading" ></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

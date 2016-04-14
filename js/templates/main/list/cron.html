@@ -1,0 +1,23 @@
+<!-- Single cron view -->
+<div class="row cron-item ui-list-item" ng-dblclick="modalForm('cron', cron.id)">
+    <div class="col-md-3 col-sm-4 col-xs-4 name">
+        <div class="enable">
+            <input type="checkbox" data-id="{{cron.id}}" ng-model="cron.enable" ng-change="enableCron(cron.enable, cron.id)"'>
+        </div>
+        <div class="cron-chat">
+            <div class="name">
+                <strong>{{cron.chat}}</strong>
+            </div>
+            <div class="id">
+                id: <span>{{cron.id}}</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-9 col-sm-8 col-xs-8 text">
+        <div>{{cron.text}}</div>
+        <div class="sub">
+            repeat: <span>{{cron.repeat}}</span> |
+            date: <span>{{cron.dts}}</span>
+        </div>
+    </div>
+</div>
